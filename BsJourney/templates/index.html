@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Learning Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ffe4e1, #ffb6c1); /* soft baby pink */
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+}
+
+/* Navigation */
+nav {
+    margin-bottom: 40px;
+}
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff69b4;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: #e60073;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Card design */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    flex: 1 1 300px;
+    min-width: 280px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Floating text effect */
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+/* Color combinations for each card */
+.card.skills { background: linear-gradient(135deg, #ff7f50, #ff6347); } /* orange-red */
+.card.goals { background: linear-gradient(135deg, #6a5acd, #7b68ee); } /* purple */
+.card.admin-img { background: linear-gradient(135deg, #20b2aa, #3cb371); } /* teal-green */
+
+/* Decorative floating shapes */
+.card::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(25deg);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.admin-img img {
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 900px) {
+    .card-container { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Navigation -->
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'aboutMe' %}">About Me</a>
+    </nav>
+
+    <h1>My Learning Journey</h1>
+
+    <div class="card-container">
+        <!-- Current Skills -->
+        <div class="card skills">
+            <h2>Current Skills</h2>
+            <p>Django, Python, HTML, CSS, Git, GitHub, and more. I have developed a solid foundation in both front-end and back-end technologies. My focus is on creating responsive, user-friendly, and efficient applications. I also enjoy exploring new frameworks, debugging complex problems, and improving code quality through collaboration and version control practices.</p>
+        </div>
+
+        <!-- Future Goals -->
+        <div class="card goals">
+            <h2>Future Goals</h2>
+            <p>As an IT teacher, my goal is to inspire and guide students to explore technology confidently and creatively. I aim to integrate practical coding and real-world problem-solving into my teaching. Additionally, I aspire to continue enhancing my technical expertise and develop educational tools and platforms that make learning IT more interactive and accessible.</p>
+        </div>
+
+        <!-- Admin Image -->
+        <div class="card admin-img">
+            <h2>admin interface</h2>
+            
+            <img src="{% static 'BsJourney/admin.png' %}" alt="Admin Image Placeholder">
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
